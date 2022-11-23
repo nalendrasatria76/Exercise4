@@ -63,6 +63,8 @@ namespace Exercise4
             else
                 Console.WriteLine("\nThe first record in the list is:\n\n" + LAST.next.rollNumber + "  " + LAST.next.name);
         }
-
+        static void Main(string[] args)
+        {
+        }
     }
 }
