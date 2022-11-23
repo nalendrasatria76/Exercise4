@@ -39,5 +39,20 @@ namespace Exercise4
             else
                 return false;
         }
+        public void traverse()/*Traverses all the nodes of the list*/
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+            {
+                Console.WriteLine("\nRecords in the list are:\n");
+                node currentNode;
+                currentNode = LAST.next;
+                while (currentNode != LAST)
+                {
+
+                }
+            }
+        }
     }
 }
