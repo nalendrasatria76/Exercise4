@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Exercise4
 {
@@ -70,12 +71,14 @@ namespace Exercise4
             {
                 try
                 {
-                    Console.WriteLine("\nMenu");
-                    Console.WriteLine("1. View all the records in the list");
-                    Console.WriteLine("2. Search for a record in the list");
-                    Console.WriteLine("3. Display the first record in the list");
-                    Console.WriteLine("4. Exit");
-                    Console.Write("\nEnter your choice (1-4): ");
+                    Console.WriteLine("\n Menu +" +
+                        "\n 1. Add a record to the list" +
+                        "\n 2. Deleted a record from the list" +
+                        "\n 3. View all records in the ascending order of roll numbers" +
+                        "\n 4. View all records in the descending order of roll numbers" +
+                        "\n 5. Search for a record in the list" +
+                        "\n 6. Exit \n" +
+                        "\n Enter your choice (1-6): ");
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
@@ -111,16 +114,43 @@ namespace Exercise4
                             }
                             break;
                         case '4':
+                            {
+                                obj.firstNode();
+                            }
+                            break;
+                        case '5':
+                            {
+                                if (obj.listEmpty() == true)
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;
+                                }
+                                node prev, curr;
+                                prev = curr = null;
+                                Console.Write("\nEnter the roll number of the student whose record you want to search: ");
+                                int num = Convert.ToInt32(Console.ReadLine());
+                                if (obj.Search(num, ref prev, ref curr) == false)
+                                    Console.WriteLine("\nRecord not found");
+                                else
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    Console.WriteLine("\nRoll number: " + curr.rollNumber);
+                                    Console.WriteLine("\nName: " + curr.name);
+                                }
+                            }
+                            break;
+                        case '6':
                             return;
                         default:
                             {
-                                Console.WriteLine("Invalid option");
-                                break;
+                                Console.WriteLine("\nInvalid option");
                             }
+                            break;
                     }
                 }
                 catch (Exception e)
                 {
+                    Console.WriteLine("Check for the values entered.");
                     Console.WriteLine(e.ToString());
                 }
             }
