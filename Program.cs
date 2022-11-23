@@ -20,7 +20,7 @@ namespace Exercise4
         {
             LAST = null;
         }
-        public bool Search(int rollNo,ref node previous,ref node current)/*Searches for the specified node*/
+        public bool Search(int rollNo, ref node previous, ref node current)/*Searches for the specified node*/
         {
             for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
             {
@@ -56,5 +56,13 @@ namespace Exercise4
                 Console.Write(LAST.rollNumber + "  " + LAST.name + "\n");
             }
         }
+        public void firstNode()
+        {
+            if (listEmpty())
+                Console.WriteLine("\nList is empty");
+            else
+                Console.WriteLine("\nThe first record in the list is:\n\n" + LAST.next.rollNumber + "  " + LAST.next.name);
+        }
+
     }
 }
